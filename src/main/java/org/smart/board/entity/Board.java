@@ -1,15 +1,25 @@
+package org.smart.board.entity;
+
+import lombok.*;
+
+@Data // 밑에 5개 다 만들어주는거라 5개 밑에 다 쓰면 없어도 됨
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Setter
+@Getter
+public class Board {
+    private Long boardseq;
+    private String usrid;
+    private String title;
+    private String content;
+    private int hitcount;
+    private String regdate;
+    private String originalfile;
+    private String savefile;
+}
+
 /*
-게시판 관련 여러 객체들 생성 --> 회원 전용
-
-*/
-
---객체삭제
-DROP TABLE "member";
-DROP SEQUENCE board_seq;
-DROP TABLE board;
-
-
--- 게시판 관련 객체
 CREATE TABLE board
 (
     boardseq NUMBER constraint board_seq_pk PRIMARY KEY,        --게시글 일련번호
@@ -22,24 +32,4 @@ CREATE TABLE board
     savefile varchar2(500)      --첨부파일명 (실제 저장된 파일명)
 
 );
-
-CREATE SEQUENCE board_seq;
-
--- 회원 테이블
-CREATE TABLE "member"
-(
-    usrid   VARCHAR2(20) PRIMARY KEY,
-    usrpwd  VARCHAR2(100) NOT NULL,
-    usrname VARCHAR2(50)  NOT NULL,
-    email   VARCHAR2(100) NOT NULL,
-    enabled NUMBER(1) DEFAULT 1,  -- 1: 사용가능 , 0: 사용 불가능
-    rolename VARCHAR2(50) DEFAULT 'ROLE_USER' NOT NULL
-
-);
-
-
--- 문서명_211225_v81.docx
--- vcs : 소스코드 - (commit)Git - (push)Github
-
---http://git-scm.com
---http://github.com
+ */
